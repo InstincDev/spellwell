@@ -9,7 +9,7 @@ const flash = require("express-flash");
 const logger = require("morgan");
 const expressLayouts = require("express-ejs-layouts");
 const connectDB = require("./config/db");
-const homeRoutes = require("./routes/home");
+const homeRoutes = require("./routes/main");
 const great_hallRoutes = require("./routes/great_hall");
 const housesRoutes = require("./routes/houses");
 
@@ -56,8 +56,8 @@ app.use(passport.session());
 app.use(flash());
 
 // Routes
-app.use("/", homeRoutes);
-app.use("/great_hall", great_hallRoutes);
+app.use("/", mainRoutes);
+app.use("/signup", signupRoutes);
 app.use("/houses", housesRoutes);
 
 app.listen(process.env.PORT, () => {
