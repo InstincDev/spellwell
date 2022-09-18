@@ -1,19 +1,18 @@
-const express = require('express')
-const router = express.Router()
-const authController = require('../controllers/auth');
-const homeController = require('../controllers/home')
-const {ensureAuth, ensureGuest} = require('../middleware/auth')
+const express = require("express");
+const router = express.Router();
+const authController = require("../controllers/auth");
+const homeController = require("../controllers/home");
+const postsController = require("../controllers/tests");
+const { ensureAuth, ensureGuest } = require("../middleware/auth");
 
-// @desc    Landing page
-// @route   GET /
-router.get( '/', homeController.getLandingPg)
+//Main Routes - simplified for now
+router.get("/", homeController.getIndex);
+router.get("/profile", ensureAuth, postsController.getProfile);
+router.get("/feed", ensureAuth, postsController.getFeed);
+router.get("/login", authController.getLogin);
+router.post("/login", authController.postLogin);
+router.get("/logout", authController.logout);
+router.get("/signup", authController.getSignup);
+router.post("/signup", authController.postSignup);
 
-// @desc    Add Person page
-// @route   GET /add_person
-router.get('/add_person', homeController.getAddPersonForm)
-
-// @desc    Add Room page
-// @route   GET /add_room
-router.get('/add_room', homeController.getAddRoomForm)
-
-module.exports = router
+module.exports = router;

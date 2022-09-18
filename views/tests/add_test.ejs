@@ -1,0 +1,70 @@
+<h3>Add New Person</h3>
+<div class=" row">
+    <form action="/houses" method="POST" class="card card-base col s12 m6 offset-m3">
+        <div class="row col m12">
+            <div class="input-field">
+                <input type="text" id="name" name="name">
+                <label for="name">Full Name</label>
+            </div>
+        </div>
+        <div class="row col m12">
+            <div class="input-field">
+                <input type="text" id="gender" name="gender">
+                <label for="gender">Gender</label>
+            </div>
+        </div>
+        <div class="row col m12">
+            <div class="input-field">
+                <input type="text" id="house" name="house">
+                <label for="house">House</label>
+            </div>
+        </div>
+        
+        <div class="row col m12">
+            <div class="input-field">
+                <input type="date" id="dob" name="dob">
+                <label for="dob">Date Of Birth</label>
+            </div>
+        </div>
+        <div class="row col m12">
+            <div class="input-field">
+                <input type="text" id="ancestry" name="ancestry">
+                <label for="ancestry">Ancestry</label>
+            </div>
+        </div>
+        <div class="row col m12">
+            <div class="input-field ">
+                <select name="status" id="status">
+                    <option value="student" selected>Student</option>
+                    <option value="staff">Staff</option>
+                    <option value="alumni">Alumni</option>
+                </select>
+                <label for="status">Status</label>
+            </div>
+        </div>
+         <div class="row input-field col s12">
+                <select name="alive" id="alive">
+                    <option value="true" selected>Alive</option>
+                    <option value="false">Deceased</option>
+                </select>
+                <label for="alive">Alive</label>
+            </div>
+        <div class="row col m12">
+            <div class="input-field">
+                <input type="text" id="actor" name="actor">
+                <label for="actor">Actor</label>
+            </div>
+        </div>
+        <div class="row col m12">
+            <div class="input-field">
+                <input type="text" id="image" name="image">
+                <label for="image">Image Url</label>
+            </div>
+        </div>   
+        </div>
+        <div class="row center">
+            <input type="submit" value="Save" class="btn">
+            <a href="../great_hall" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
