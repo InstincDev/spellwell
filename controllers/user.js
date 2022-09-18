@@ -1,23 +1,22 @@
-const cloudinary = require("../middleware/cloudinary");
-const Test = require("../models/Tests");
+const User = require("../models/User");
 
 module.exports = {
   getProfile: async (req, res) => {
     try {
-      const posts = await Post.find({ user: req.user.id });
-      res.render("profile.ejs", { posts: posts, user: req.user });
+      console.log(req.user)
+      res.render("profile.ejs", { user: req.user });
     } catch (err) {
       console.log(err);
     }
   },
-  getFeed: async (req, res) => {
-    try {
-      const posts = await Post.find().sort({ createdAt: "desc" }).lean();
-      res.render("feed.ejs", { posts: posts });
-    } catch (err) {
-      console.log(err);
+  getAddTestForm: (req, res)=>{
+    try{
+        res.render("add_test.ejs",{user: req.user} )
+    } catch (err){
+        console.error(err)
+        res.render('errors/404')
     }
-  },
+},
   getPost: async (req, res) => {
     try {
       const post = await Post.findById(req.params.id);
