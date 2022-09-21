@@ -5,7 +5,11 @@ const TestSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  words: { 
+  baseWords: { 
+    type: Array,
+    of: String
+  },
+  challengeWords: {
     type: Array,
     of: String
   },  

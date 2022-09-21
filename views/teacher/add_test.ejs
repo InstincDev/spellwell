@@ -1,0 +1,36 @@
+<%- include('../partials/header') -%>
+
+<h3>Add New Test</h3>
+<div class=" row">
+    <form action="/test/tests" method="POST" class="card card-base col s12 m6 offset-m3">
+        <div class="row col m12">
+            <div class="input-field">
+                <label for="title">Title</label>
+                <input type="text" id="title" name="title">
+            </div>
+        </div>
+        <div class="row col m12">
+            <div class="row input-field">
+                <label for="baseWords">Words</label>
+                <% for(let i = 0; i<10; i++){%>
+                <input type="text" id="baseWords<%=i%>" name="baseWords" class="col-6" >
+                <%}%>
+            </div>
+        </div>
+        <div class="row col m12">
+            <div class=" row input-field">
+                <label for="challenge">Challenge</label>
+                <% for(let i = 0; i<5; i++){%>
+                <input type="text" id="challenge<%=i%>" name="challenge" class="col-6" >
+                <%}%>
+            </div>
+        </div>
+        </div>
+        <div class="row center">
+            <input type="submit" value="Create
+            " class="btn">
+            <a href="./user/profile" class="btn orange">Cancel</a>
+        </div>
+    </form>
+</div>
+<%- include('../partials/footer') -%>
