@@ -4,13 +4,8 @@ const mongoose = require("mongoose");
 const UserSchema = new mongoose.Schema({
     userName: {type:String, unique: true, required: true},
     email: {type:String, unique: true, required: true},
-    password: {type:String},
-    status: {
-        type: String,
-        default: 'student',
-        enum: ['student', 'teacher'],
-    },
-    teacherId: {type: mongoose.Schema.Types.ObjectId, ref: "Teacher"},
+    password: {type:String, required: true},
+    role: {type: String,required: true},
 });
 
 // Password hash middleware.

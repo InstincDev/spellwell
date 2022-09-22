@@ -56,16 +56,25 @@ exports.logout = (req, res) => {
   });
 };
 
-exports.getSignup = (req, res) => {
+exports.getStudentSignup = (req, res) => {
   if (req.user) {
-    return res.redirect("./user/profile");
+    return res.redirect("./student/profile");
   }
-  res.render("signup", {
+  res.render("./student/signup", {
     title: "Create Account",
   });
 };
 
-exports.postSignup = (req, res, next) => {
+exports.getTeacherSignup = (req, res) => {
+  if (req.user) {
+    return res.redirect("./user/profile");
+  }
+  res.render("./teacher/signup", {
+    title: "Create Account",
+  });
+};
+
+exports.postStudentSignup = (req, res, next) => {
   const validationErrors = [];
   if (!validator.isEmail(req.body.email))
     validationErrors.push({ msg: "Please enter a valid email address." });
@@ -78,7 +87,7 @@ exports.postSignup = (req, res, next) => {
 
   if (validationErrors.length) {
     req.flash("errors", validationErrors);
-    return res.redirect("../signup");
+    return res.redirect("../student/signup");
   }
   req.body.email = validator.normalizeEmail(req.body.email, {
     gmail_remove_dots: false,
@@ -88,6 +97,7 @@ exports.postSignup = (req, res, next) => {
     userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
+    role: 'student',
   });
 
   User.findOne(
@@ -100,7 +110,7 @@ exports.postSignup = (req, res, next) => {
         req.flash("errors", {
           msg: "Account with that email address or username already exists.",
         });
-        return res.redirect("../signup");
+        return res.redirect("../student/signup");
       }
       user.save((err) => {
         if (err) {
@@ -110,7 +120,60 @@ exports.postSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          res.redirect("./user/profile");
+          res.redirect("../student/profile");
+        });
+      });
+    }
+  );
+};
+
+exports.postTeacherSignup = (req, res, next) => {
+  const validationErrors = [];
+  if (!validator.isEmail(req.body.email))
+    validationErrors.push({ msg: "Please enter a valid email address." });
+  if (!validator.isLength(req.body.password, { min: 8 }))
+    validationErrors.push({
+      msg: "Password must be at least 8 characters long",
+    });
+  if (req.body.password !== req.body.confirmPassword)
+    validationErrors.push({ msg: "Passwords do not match" });
+
+  if (validationErrors.length) {
+    req.flash("errors", validationErrors);
+    return res.redirect("../teacher/signup");
+  }
+  req.body.email = validator.normalizeEmail(req.body.email, {
+    gmail_remove_dots: false,
+  });
+
+  const user = new User({
+    userName: req.body.userName,
+    email: req.body.email,
+    password: req.body.password,
+    role: 'teacher',
+  });
+
+  User.findOne(
+    { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
+    (err, existingUser) => {
+      if (err) {
+        return next(err);
+      }
+      if (existingUser) {
+        req.flash("errors", {
+          msg: "Account with that email address or username already exists.",
+        });
+        return res.redirect("../teacher/signup");
+      }
+      user.save((err) => {
+        if (err) {
+          return next(err);
+        }
+        req.logIn(user, (err) => {
+          if (err) {
+            return next(err);
+          }
+          res.redirect("./teacher/profile");
         });
       });
     }
