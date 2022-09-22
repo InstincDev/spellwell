@@ -40,7 +40,7 @@ exports.postLogin = (req, res, next) => {
         return next(err);
       }
       req.flash("success", { msg: "Success! You are logged in." });
-      res.redirect(req.session.returnTo || "./user/profile");
+      res.redirect(req.session.returnTo || "./" +req.user.role+"/profile");
     });
   })(req, res, next);
 };
@@ -68,7 +68,7 @@ exports.getStudentSignup = (req, res) => {
 
 exports.getTeacherSignup = (req, res) => {
   if (req.user) {
-    return res.redirect("./user/profile");
+    return res.redirect("./teacher/profile");
   }
   res.render("./teacher/signup", {
     title: "Create Account",
@@ -174,7 +174,7 @@ exports.postTeacherSignup = (req, res, next) => {
           if (err) {
             return next(err);
           }
-          res.redirect("./teacher/profile");
+          res.redirect("../teacher/profile");
         });
       });
     }

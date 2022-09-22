@@ -7,6 +7,6 @@ const { ensureAuth, ensureGuest } = require("../middleware/auth");
 //User Routes - simplified for now
 router.get("/signup", authController.getStudentSignup);
 router.post("/signup", authController.postStudentSignup);
-router.get("/profile", ensureAuth, studentController.getProfile);
+router.get("/profile", ensureAuth, studentController.getStudentProfile);
 
 module.exports = router;

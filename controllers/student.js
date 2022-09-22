@@ -2,7 +2,7 @@ const User = require("../models/User");
 const Test = require("../models/Tests")
 
 module.exports = {
-  getProfile: async (req, res) => {
+  getStudentProfile: async (req, res) => {
     try {
       const tests = await Test.find().lean()
       const selectedTest = await Test.findById(req.query.testId);
