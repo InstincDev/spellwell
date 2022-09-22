@@ -1,10 +1,21 @@
 <%- include('partials/header') -%>
 
 <main class="container">
-    <div class="row justify-content-around mt-5">
-        <a href="/login" class="col-3 btn btn-primary"> Login</a>
-        <a href="/signup" class="col-3 btn btn-primary"> Signup</a>
+    <div class="welcome row">
+        <h2>Welcome </h2>
+        <div class="text-center">
+           <img src="/imgs/teacher_student.png" alt="home image"> 
+        </div>
+        
+      </div>  
+    <div class="row justify-content-md-around">
+        <p>I am a ...</p>
+            <a href="/login" class="col col-12 col-md-5   btn btn-primary">Student</a>
+        <a href="/signup" class="col col-12 col-md-5 btn btn-primary">Teacher</a>
+       <a href="/login"class="col col-12  text-center">Login</a>
+        
     </div>
+     
 </main>
     
 

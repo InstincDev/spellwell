@@ -1,17 +1,15 @@
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
-const UserSchema = new mongoose.Schema({
-  fullName: { type: String, unique: true },
-  teacherId: { type: String, required: true},
-  email: { type: String, unique: true },
-  password: String,
+const StudentSchema = new mongoose.Schema({
+  studentId: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
   reviewWords: {type: Map, of : String},
+  test: {type: Array}
 });
 
 // Password hash middleware.
 
-UserSchema.pre("save", function save(next) {
+StudentSchema.pre("save", function save(next) {
   const user = this;
   if (!user.isModified("password")) {
     return next();
@@ -32,7 +30,7 @@ UserSchema.pre("save", function save(next) {
 
 // Helper method for validating user's password.
 
-UserSchema.methods.comparePassword = function comparePassword(
+StudentSchema.methods.comparePassword = function comparePassword(
   candidatePassword,
   cb
 ) {
@@ -41,4 +39,4 @@ UserSchema.methods.comparePassword = function comparePassword(
   });
 };
 
-module.exports = mongoose.model("User", UserSchema);
+module.exports = mongoose.model("Student", StudentSchema);

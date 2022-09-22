@@ -1,43 +1,37 @@
 <%- include('../partials/header') -%>
-<h3>Add New Person</h3>
+<h3 class="testTitle "><%=test.title%> Test</h3>
 <div class=" row">
-    <form method="POST" autocomplete="off" class="card card-base col s12 m6 offset-m3">
-        <h2><%=test.title%></h2>
+    <form method="POST" autocomplete="off" class="card col">
+        <p>Press the <span><i class="fas fa-play-circle"></i></span> button to hear the spelling word. Then type the word in the space. </p>
         <div class="text-center row">
         <% for (word of randTest) {%>
             <div class="input-field">
-                <button type="button" onclick="sayWord(event)" id="<%=test.baseWords[0]%>" value="<%=test.baseWords[2]%>"><%=word%></button> 
-                <label for="name"><%=word%></label>
+                <button type="button" onclick="sayWord(event)" id="<%=word%>" value="<%=word%>"><i class="fas fa-play-circle"></i></button> 
                 <input type="text" id="<%=word%>" name="<%=word%>">
             </div>
         <%}%>
         </div>
-        <h4>Challenge Words</h4>
+        <h4 class="text-center">Challenge Words</h4>
         <div class="text-center">
             <% for (word of randChallenge) {%>
                 <div class="input-field">
-                    <label for="name"><%=word%></label>
+                    <button type="button" onclick="sayWord(event)" id="<%=word%>" value="<%=word%>"><i class="fas fa-play-circle"></i></button>
                     <input type="text" id="<%=word%>" name="<%=word%>">
                 </div>
             <%}%>
         </div>
         <div class="row center">
-            <button></button>
-            <input type="submit" value="Grade" class="btn">
-            <a href="/user/profile" class="btn ">Cancel</a>
+            <input type="submit" value="Submit" class="btn btn-primary col-6">
+            <a href="/user/profile" class="btn btn-danger col-6">Cancel</a>
         </div>
     </form>
 </div>
 
 <script>
-    // const say = require('say')
-    let w = document.getElementById('<%= test.baseWords[0] %>').value
-    // console.log(w)
     const sayWord = (event) => {
         // say.speak(w)
-        console.log(event.currentTarget.innerHTML)
-        let utterance = new SpeechSynthesisUtterance(event.currentTarget.innerHTML);
-speechSynthesis.speak(utterance);
+        console.log(event.currentTarget.value)
+        speechSynthesis.speak(new SpeechSynthesisUtterance(event.currentTarget.value));
     }
     
 </script>
