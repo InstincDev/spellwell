@@ -1,73 +1,44 @@
 <%- include('../partials/header') -%>
 <h3>Add New Person</h3>
 <div class=" row">
-    <form action="/houses" method="POST" class="card card-base col s12 m6 offset-m3">
+    <form method="POST" autocomplete="off" class="card card-base col s12 m6 offset-m3">
         <h2><%=test.title%></h2>
-        
-        <div class="row col m12">
+        <div class="text-center row">
+        <% for (word of randTest) {%>
             <div class="input-field">
-                <label for="name"><%=test.baseWords[0]%></label>
-                <input type="text" id="name" name="name">
+                <button type="button" onclick="sayWord(event)" id="<%=test.baseWords[0]%>" value="<%=test.baseWords[2]%>"><%=word%></button> 
+                <label for="name"><%=word%></label>
+                <input type="text" id="<%=word%>" name="<%=word%>">
             </div>
+        <%}%>
         </div>
-        <div class="row col m12">
-            <div class="input-field">
-                <label for="name"><%=test.baseWords[0]%></label>
-                <input type="text" id="name" name="name">
-            </div>
+        <h4>Challenge Words</h4>
+        <div class="text-center">
+            <% for (word of randChallenge) {%>
+                <div class="input-field">
+                    <label for="name"><%=word%></label>
+                    <input type="text" id="<%=word%>" name="<%=word%>">
+                </div>
+            <%}%>
         </div>
-        <div class="row col m12">
-            <div class="input-field">
-                <input type="text" id="name" name="name">
-                <label for="name"><%=test.baseWords[0]%></label>
-            </div>
-        </div>
-        <div class="row col m12">
-            <div class="input-field">
-                <input type="text" id="name" name="name">
-                <label for="name"><%=test.baseWords[0]%></label>
-            </div>
-        </div>
-        <div class="row col m12">
-            <div class="input-field">
-                <input type="text" id="name" name="name">
-                <label for="name"><%=test.baseWords[0]%></label>
-            </div>
-        </div>
-        <div class="row col m12">
-            <div class="input-field">
-                <input type="text" id="gender" name="gender">
-                <label for="gender">Gender</label>
-            </div>
-        </div>
-        <div class="row col m12">
-            <div class="input-field">
-                <input type="text" id="house" name="house">
-                <label for="house">House</label>
-            </div>
-        </div>
-        <div class="row col m12">
-            <div class="input-field">
-                <input type="text" id="ancestry" name="ancestry">
-                <label for="ancestry">Ancestry</label>
-            </div>
-        </div>
-        <div class="row col m12">
-            <div class="input-field">
-                <input type="text" id="actor" name="actor">
-                <label for="actor">Actor</label>
-            </div>
-        </div>
-        <div class="row col m12">
-            <div class="input-field">
-                <input type="text" id="image" name="image">
-                <label for="image">Image Url</label>
-            </div>
-        </div>   
         <div class="row center">
-            <input type="submit" value="Save" class="btn">
-            <a href="../great_hall" class="btn orange">Cancel</a>
+            <button></button>
+            <input type="submit" value="Grade" class="btn">
+            <a href="/user/profile" class="btn ">Cancel</a>
         </div>
     </form>
 </div>
+
+<script>
+    // const say = require('say')
+    let w = document.getElementById('<%= test.baseWords[0] %>').value
+    // console.log(w)
+    const sayWord = (event) => {
+        // say.speak(w)
+        console.log(event.currentTarget.innerHTML)
+        let utterance = new SpeechSynthesisUtterance(event.currentTarget.innerHTML);
+speechSynthesis.speak(utterance);
+    }
+    
+</script>
 <%- include('../partials/footer') -%>

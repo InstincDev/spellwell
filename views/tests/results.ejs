@@ -1,0 +1,15 @@
+<%- include('../partials/header') -%>
+<h3>Add New Person</h3>
+<div class=" row">
+        <h2>Grade</h2>
+        <div class="text-center row">
+        <% for (result of incorrect) {%>
+            <span>Incorrect Word: <%=result.incorrectWord%></span>
+            <span>Correct Word: <%=result.correctWord%></span>
+        <%}%>
+        </div>
+        <div class="row center">
+            <a href="/user/profile" class="btn ">Cancel</a>
+        </div>
+</div>
+<%- include('../partials/footer') -%>
