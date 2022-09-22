@@ -3,8 +3,9 @@ const validator = require("validator");
 const User = require("../models/User");
 
 exports.getLogin = (req, res) => {
+   
   if (req.user) {
-    return res.redirect("user/profile");
+    return res.redirect(req.user.role+"/profile");
   }
   res.render("login", {
     title: "Login",
