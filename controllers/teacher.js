@@ -1,5 +1,6 @@
 const User = require("../models/User");
-const Test = require("../models/Tests")
+const Test = require("../models/Tests");
+const Student = require("../models/Student")
 
 module.exports = {
   
@@ -29,8 +30,11 @@ module.exports = {
         challengeWords: req.body.challenge,
         createdBy: req.user.id,
       });
+      let studentUsers = await Student.find({role: 'student'});
+      console.log(studentUsers)
+      
       console.log("Test has been added!");
-      res.redirect("/profile");
+      res.redirect("/"+ req.user.role+"/profile");
     } catch (err) {
       console.log(err);
     }

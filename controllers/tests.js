@@ -1,57 +1,82 @@
 const User = require("../models/User");
-const Test = require("../models/Tests")
-const say = require('say')
+const Test = require("../models/Tests");
+const Student = require("../models/Student");
 
 module.exports = {
-  getTest: async (req, res) => {
-      try {
-        const test = await Test.findById(req.params.id);
-        function shuffle(array) {
-        let currentIndex = array.length,  randomIndex;
+    getTest: async (req, res) => {
+        try {
+            const test = await Test.findById(req.params.id);
 
-        // While there remain elements to shuffle.
-        while (currentIndex != 0) {
-      
-          // Pick a remaining element.
-          randomIndex = Math.floor(Math.random() * currentIndex);
-          currentIndex--;
-      
-          // And swap it with the current element.
-          [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
+            function shuffle(array) {
+                let currentIndex = array.length,
+                    randomIndex;
+
+                // While there remain elements to shuffle.
+                while (currentIndex != 0) {
+                    // Pick a remaining element.
+                    randomIndex = Math.floor(Math.random() * currentIndex);
+                    currentIndex--;
+
+                    // And swap it with the current element.
+                    [array[currentIndex], array[randomIndex]] = [
+                        array[randomIndex],
+                        array[currentIndex],
+                    ];
+                }
+                return array;
+            }
+
+            const randTest = shuffle(test.baseWords);
+            const randChallenge = shuffle(test.challengeWords);
+            res.render("./tests/test", {
+                test: test,
+                randTest: randTest,
+                randChallenge: randChallenge,
+                user: req.user,
+            });
+        } catch (err) {
+            console.log(err);
         }
-      
-        return array;
-      }
-      
-      const randTest = shuffle(test.baseWords);
-      const randChallenge = shuffle(test.challengeWords);  
-      res.render("./tests/test", { test: test, randTest: randTest, randChallenge: randChallenge, user: req.user });
-    } catch (err) {
-      console.log(err);
-    }
-  },
+    },
 
-  getTestResults: async (req, res) => {
-    try{
-      let incorrect = []
-      if(!req.user.reviewWords){
-        req.user.reviewWords = new Map()
-      }
-      for(let key in req.body){
-          if(key.toLowerCase() != req.body[key].toLowerCase()){
-            let result = {incorrectWord:req.body[key],correctWord:key}
-            req.user.reviewWords.set(key, req.body[key])
-            incorrect.push(result)
-          }
+    getTestResults: async (req, res) => {
+        try {
+           console.log(`YEEETT ${req.user.id}`);
+            const test = await Test.findById(req.params.id);
+            let incorrect = [];
+           
 
-      }
-      await req.user.save()
-      console.log(req.user.reviewWords)
-      res.render("./tests/results", {incorrect: incorrect})
-    }
-    catch (err){
-      console.log(err);
-    }
-  },
+            for (let key in req.body) {
+                if (key.toLowerCase() != req.body[key].toLowerCase()) {
+                    let result = {
+                        incorrectWord: req.body[key],
+                        correctWord: key,
+                    };
+                    incorrect.push(result);
+                }
+            }
+            let grade = Math.floor(((15 - incorrect.length) / 15) * 100);
+
+            const student = await Student.findOne({ studentId: req.user.id });
+            if (student) {
+                student.reviewWords.push(...incorrect);
+                student.test.push(test.title, grade);
+                await student.save();
+            } else {
+                await Student.create({
+                    studentId: req.user.id,
+                    reviewWords: new Array(),
+                    test: new Array(),
+                });
+            }
+
+            res.render("./tests/results", {
+                incorrect: incorrect,
+                test: test,
+                grade: grade,
+            });
+        } catch (err) {
+            console.log(err);
+        }
+    },
 };

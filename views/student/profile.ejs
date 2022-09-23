@@ -41,31 +41,14 @@
                         </ul>
                         <%}%>
                     </section>
-
-                    <section class="col-6 row linksSection">
-                        <section class="games col-12">
-                            <h3>Games</h3>
-                            <a href="#" class="btn-sm btn-primary"
-                                >Letter Mixup</a
-                            >
-                            <a href="#" class="btn-sm btn-primary"
-                                >Missing Letter</a
-                            >
-                        </section>
-                        <section class="tests col-12">
-                            <h3>Tests</h3>
-                            <% if(selectedTest){%>
-                            <a href="#" class="btn-sm btn-primary">Pre-Test</a>
-                            <a href="../tests/test/<%=selectedTest._id%>" class="btn-sm btn-primary"
-                                >Test</a
-                            >
-                            <%}%>
-                            <a
-                                href="../teacher/add_test"
-                                class="btn-sm btn-primary"
-                                >Add Tests</a
-                            >
-                        </section>
+                    <section class="tests col-12">
+                        <h3>Tests</h3>
+                        <% if(selectedTest){%>
+                        <a href="../tests/test/<%=selectedTest._id%>" class="btn-sm btn-primary">
+                            Test
+                        </a>
+                        <%}%>
+                    </section>
                     </section>
                 </div>
             </div>
