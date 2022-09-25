@@ -4,12 +4,14 @@ const User = require("../models/User");
 
 exports.getLogin = (req, res) => {
    
-  if (req.user) {
-    return res.redirect(req.user.role+"/profile");
-  }
-  res.render("login", {
-    title: "Login",
-  });
+    if (req.user) {
+        return res.redirect(req.user.role+"/profile");
+      }
+      res.render("login", {
+        title: "Login",
+      });
+   
+  
 };
 
 exports.postLogin = (req, res, next) => {

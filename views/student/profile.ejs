@@ -9,18 +9,19 @@
                 <p class="col-4"><strong>Email</strong>: <%= user.email %></p>
                 <a href="/logout" class="col-2 btn btn-primary">Logout</a>
             </div>
-            <div class="mt-5 card">
+            <div class="mt-5 mb-5 card">
                 <div class="row">
-                    <section class="col-6 mapSection">
-                        <h2>Stats</h2>
-                        <form>
+                    <section class="col-6 ">
+                        <h2>Tests</h2>
+                        <div class="card">
+                            <form >
                             <div class="dropdown">
                                 <select
                                     name="testId"
-                                    class="form-select"
+                                    class=" col-6 form-select"
                                     aria-label="list of spelling test titles"
                                 >
-                                    <option selected>Tests</option>
+                                    <option selected disabled>Tests</option>
                                     <%for(let i =0; i < tests.length; i++) { %>
                                     <option
                                         id="testName"
@@ -29,25 +30,43 @@
                                     </option>
                                     <%} %>
                                 </select>
-                                <button>View Test</button>
+                                <button class="btn-sm">View Test</button>
                             </div>
                         </form>
 
-                        <% if(selectedTest){%>
-                        <ul>
+                        <% if(!selectedTest){%>
+                            <p>No Test Selected</p>
+                        <%} else {%> 
+                            <p class="text-center">
+                                 <%=selectedTest.title%>
+                            </p>
+                           
+                            <ul class="list-unstyled text-center">
                             <% for (word of selectedTest.baseWords) {%>
                             <li><%=word%></li>
                             <%}%>
                         </ul>
-                        <%}%>
-                    </section>
-                    <section class="tests col-12">
-                        <h3>Tests</h3>
-                        <% if(selectedTest){%>
-                        <a href="../tests/test/<%=selectedTest._id%>" class="btn-sm btn-primary">
-                            Test
+                           <a href="../tests/test/<%=selectedTest._id%>" class="btn-sm btn-primary justify-content-md-center text-center ">
+                           Take Test
                         </a>
-                        <%}%>
+                         <%}%>
+                        </div>
+                       
+                    </section>
+                    <section class="tests col-6">
+                        <h3>Grades</h3>
+                        <% if(student.length == 0 ){%>
+                            <p>No Tests Completed</p>
+                        <%} else {%> 
+                            <p class="text-center">
+                                <%=student[0]%>
+                            </p>
+                                <%for(let i =0; i < student[0].test.length; i+=2) { %>
+                                    Test: <%=student[0].test[i]%> Grade: <%=student[0].test[i+1]%>
+                                <%} %>
+                           <%}%>
+                             
+                    
                     </section>
                     </section>
                 </div>

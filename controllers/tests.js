@@ -41,11 +41,8 @@ module.exports = {
 
     getTestResults: async (req, res) => {
         try {
-           console.log(`YEEETT ${req.user.id}`);
             const test = await Test.findById(req.params.id);
             let incorrect = [];
-           
-
             for (let key in req.body) {
                 if (key.toLowerCase() != req.body[key].toLowerCase()) {
                     let result = {
