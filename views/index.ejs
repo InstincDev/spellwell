@@ -1,20 +1,22 @@
 <%- include('partials/header') -%>
 
-<main class="container">
-    <div class="welcome row">
-        <h2>Welcome </h2>
-        <div class="text-center">
-           <img src="/imgs/teacher_student.png" alt="home image"> 
+<main class="container mt-5 ">
+  <div class="row m-3 ">
+     <div class=" row m-3 justify-content-center bg-primary">
+        <h2 class="text-white mt-3">Welcome </h2>
+        <div class=" col-6 mb-3">
+           <img src="/imgs/teacher_student.png" alt="home image" class="img-fluid"> 
         </div>
-        
+         <p class="text-center text-white fs-4">I am a ...</p>
       </div>  
-    <div class="row justify-content-md-around">
-        <p>I am a ...</p>
-        <a href="/student/signup" class="col col-12 col-md-5 btn btn-primary">Student</a>
-        <a href="/teacher/signup" class="col col-12 col-md-5 btn btn-primary">Teacher</a>
-       <a href="/login"class="col col-12  text-center">Login</a>
+    <div class="row m-3 gap-2 justify-content-center">
+        <a href="/student/signup" class=" col-md-5 btn btn-info fs-4">Student</a>
+        <a href="/teacher/signup" class="col-md-5 btn btn-info fs-4">Teacher</a>
+       <a href="/login"class="col col-12  text-center fs-5">Login</a>
         
     </div>
+  </div>
+   
      
 </main>
     
