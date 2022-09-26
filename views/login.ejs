@@ -1,8 +1,15 @@
 <%- include('partials/header') -%>
 
-<main class="container">
+<main class="container mt-5 bg-primary ">
   <div class="row justify-content-center">
-    <section class="col-6 mt-5">
+    <div class=" row col-12 text-center justify-content-center">
+      <div class=" card m-5 col-6 ">
+    <div class=" card-header bg-info">
+        <i class="far fa-user text-white fs-2 text mt-2"></i>
+       <p class="card-title text-white fs-4 text"><strong>Login</strong></p>
+    </div>
+    <div class="card-body row justify-content-center">
+    <section class="col mt-3">
       <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
       <div class="alert alert-danger"><%= el.msg %></div>
       <% }) %> <% } %> <% if (locals.messages.info) { %> <%
@@ -10,8 +17,9 @@
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
       <form action="/login" method="POST">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
+        
+        <div class="mb-3 ">
+          <label for="exampleInputEmail1" class="form-label text-primary"
             >Email address</label
           >
           <input
@@ -23,7 +31,7 @@
           />
         </div>
         <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <label for="exampleInputPassword1" class="form-label text-primary">Password</label>
           <input
             type="password"
             class="form-control"
@@ -31,11 +39,19 @@
             name="password"
           />
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-        <a href="/"class="btn btn-primary">Back</a>
+        <div class="row gap-2 justify-content-center">
+          <button type="submit" class=" col-md-5 g-2 col-sm-6 btn btn-info text-white">Submit</button>
+        <a href="/"class="col-md-5 g-2 col-sm-6 btn btn-outline-info ">Back</a>
+        </div>
+        
       </form>
     </section>
   </div>
+  </div>
+    </div>
+  </div>
+  
+  
 </main>
 
 <%- include('partials/footer') -%>

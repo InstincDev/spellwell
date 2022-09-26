@@ -58,14 +58,19 @@
                         <% if(student.length == 0 ){%>
                             <p>No Tests Completed</p>
                         <%} else {%> 
-                            <p class="text-center">
-                                <%=student[0]%>
-                            </p>
+                            <% if(!selectedTest){%>
+                                <p>No Test Selected</p>
+                            <%} else {%> 
+                                <p class="text-center">
+                                     <%=selectedTest.title%>
+                                </p>
+                               
                                 <%for(let i =0; i < student[0].test.length; i+=2) { %>
+                                    
                                     Test: <%=student[0].test[i]%> Grade: <%=student[0].test[i+1]%>
                                 <%} %>
                            <%}%>
-                             
+                           <%}%>   
                     
                     </section>
                     </section>

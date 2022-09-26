@@ -4,3 +4,7 @@ img {
 width: 50%;
 margin: 0 auto;
 }
+
+.user-icon{
+    font-size: 3rem;
+}
