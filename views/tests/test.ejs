@@ -1,9 +1,12 @@
 <%- include('../partials/header') -%>
-<h3 class="testTitle "><%=test.title%> Test</h3>
-<div class=" row">
-    <form method="POST" autocomplete="off" class="card col">
+<main class="container mt-5 bg-primary">
+    <h3 class="text-white"><%=test.title%> Test</h3>
+<div class=" row justify-content-center">
+    <form method="POST" autocomplete="off" class="card m-4 col-8">
         <p>Press the <span><i class="fas fa-play-circle"></i></span> button to hear the spelling word. Then type the word in the space. </p>
-        <div class="text-center row">
+        <div class="m-2">
+            <h4 class="text-center">Base Words</h4>
+            <div class="text-center row mb-2">
         <% for (word of randTest) {%>
             <div class="input-field">
                 <button type="button" onclick="sayWord(event)" id="<%=word%>" value="<%=word%>"><i class="fas fa-play-circle"></i></button> 
@@ -20,12 +23,16 @@
                 </div>
             <%}%>
         </div>
-        <div class="row center">
-            <input type="submit" value="Submit" class="btn btn-primary col-6">
-            <a href="/student/profile" class="btn btn-danger col-6">Cancel</a>
+        </div>
+        
+        <div class="row text-center col-6 justify-content-center mt-2">
+            <input type="submit" value="Submit" class="btn btn-info col-6">
+            <a href="/student/profile" class="btn btn-outline-info col-6">Cancel</a>
         </div>
     </form>
 </div>
+</main>
+
 
 <script>
     const sayWord = (event) => {

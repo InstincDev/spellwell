@@ -11,6 +11,7 @@ module.exports = {
         res.render("./teacher/profile", { tests: tests, user: req.user, selectedTest: selectedTest});
       } catch (err) {
         console.log(err);
+        res.render("errors/404")
       }
     },
   getAddTestForm: (req, res)=>{
@@ -37,6 +38,7 @@ module.exports = {
       res.redirect("/"+ req.user.role+"/profile");
     } catch (err) {
       console.log(err);
+      res.render("errors/404")
     }
   },
 };

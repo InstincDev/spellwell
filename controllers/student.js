@@ -13,6 +13,7 @@ module.exports = {
       res.render("./student/profile", { tests: tests, user: req.user, selectedTest: selectedTest, student: student});
     } catch (err) {
       console.log(err);
+      res.render("errors/404")
     }
   },
 
