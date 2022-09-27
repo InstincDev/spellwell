@@ -1,82 +1,111 @@
 <%- include('../partials/header') -%>
-<div class="container">
-    <div class="card row mt-5">
-        <div class="col">
-            <div class="row">
-                <p class="col-4">
-                    <strong>User Name</strong>: <%= user.userName %>
-                </p>
-                <p class="col-4"><strong>Email</strong>: <%= user.email %></p>
-                <a href="/logout" class="col-2 btn btn-primary">Logout</a>
+<div class="container mt-5 bg-primary">
+    <div class="row justify-content-center">
+        <div class="m-5 card col-8   justify-content-center bg-info">
+            <div class=" row bg-white ">
+            <p class="col-4 ">
+                <strong>User Name</strong>: <%= user.userName %>
+            </p>
+            <p class="col-4">
+                <strong>Email</strong>: <%= user.email %>
+            </p>
+            <div class="col-4 ">
+                <a href="/logout" class=" btn-sm btn btn-info justify-content-center">Logout</a>
+            </div>
+            
             </div>
             <div class="mt-5 mb-5 card">
                 <div class="row">
-                    <section class="col-6 ">
-                        <h2>Tests</h2>
-                        <div class="card">
-                            <form >
-                            <div class="dropdown">
+                    <div class="col-md-6 text-center row justify-content-center">
+                    <h2>Tests</h2>
+                    <div class=" justify-content-center mb-3">
+                        <form class="justify-content-center row" >
+                        <div class="dropdown row">
+                            <div class="col-md-6">
                                 <select
-                                    name="testId"
-                                    class=" col-6 form-select"
-                                    aria-label="list of spelling test titles"
-                                >
-                                    <option selected disabled>Tests</option>
-                                    <%for(let i =0; i < tests.length; i++) { %>
-                                    <option
-                                        id="testName"
-                                        value="<%=tests[i]._id%>">
-                                         <%=tests[i].title%>
-                                    </option>
-                                    <%} %>
-                                </select>
-                                <button class="btn-sm">View Test</button>
+                                name="testId"
+                                class=" col-6 form-select"
+                                aria-label="list of spelling test titles"
+                            >
+                                <option selected disabled>Tests</option>
+                                <%for(let i =0; i < tests.length; i++) { %>
+                                <option
+                                    id="testName"
+                                    value="<%=tests[i]._id%>">
+                                        <%=tests[i].title%>
+                                </option>
+                                <%} %>
+                            </select>
                             </div>
-                        </form>
-
-                        <% if(!selectedTest){%>
-                            <p>No Test Selected</p>
-                        <%} else {%> 
-                            <p class="text-center">
-                                 <%=selectedTest.title%>
-                            </p>
-                           
-                            <ul class="list-unstyled text-center">
-                            <% for (word of selectedTest.baseWords) {%>
-                            <li><%=word%></li>
-                            <%}%>
-                        </ul>
-                           <a href="../tests/test/<%=selectedTest._id%>" class="btn-sm btn-primary justify-content-md-center text-center ">
-                           Take Test
-                        </a>
-                         <%}%>
+                            
+                            <button class="col-md-4 btn btn-sm btn-info">View Test</button>
                         </div>
-                       
-                    </section>
-                    <section class="tests col-6">
-                        <h3>Grades</h3>
-                        <% if(student.length == 0 ){%>
-                            <p>No Tests Completed</p>
+                    </form>
+
+                    <% if(!selectedTest){%>
+                        <p>No Test Selected</p>
+                    <%} else {%> 
+                        <p class="text-center mt-2 fs-5">
+                                <%=selectedTest.title%>
+                        </p>
+                        
+                        <ul class="list-unstyled text-center">
+                        <% for (word of selectedTest.baseWords) {%>
+                        <li><%=word%></li>
+                        <%}%>
+                    </ul>
+                        <a href="../tests/test/<%=selectedTest._id%>" class="btn-sm btn-primary justify-content-md-center text-center mb-2">
+                        Take Test
+                    </a>
+                        <%}%>
+                    </div>
+                    
+                </div>
+                <div class="col-md-6 text-center justify-content-center">
+                    <h3>Grades</h3>
+                    <div class="row">
+                     <% if(student.length == 0 ){%>
+                        <p>No Tests Completed</p>
                         <%} else {%> 
                             <% if(!selectedTest){%>
                                 <p>No Test Selected</p>
                             <%} else {%> 
-                                <p class="text-center">
-                                     <%=selectedTest.title%>
+                                <p class="text-center fs-5">
+                                        <%=selectedTest.title%>
                                 </p>
-                               
-                                <%for(let i =0; i < student[0].test.length; i+=2) { %>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <td>Attempt</td>
+                                            <td>Grade</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <%for(let i =0; i < student[0].test.length; i+=2) { %>
+                                        <tr>
+                                            
+                                            <td><%=i%></td>
+                                            <td><%=student[0].test[i+1]%></td>
+                                            
+                                        </tr>
+                                        <%} %>
+                                    </tbody>
+                                </table>
+                                
                                     
-                                    Test: <%=student[0].test[i]%> Grade: <%=student[0].test[i+1]%>
-                                <%} %>
-                           <%}%>
-                           <%}%>   
-                    
-                    </section>
-                    </section>
+                                    
+                                
+                            <%}%>
+                            <%}%>
+                    </div>
+                       
+                
+                            </div>
+                
                 </div>
             </div>
         </div>
     </div>
+    
 </div>
 <%- include('../partials/footer') -%>
