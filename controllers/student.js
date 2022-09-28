@@ -1,10 +1,11 @@
-const User = require("../models/User");
+const Teacher = require("../models/Teacher");
 const Test = require("../models/Tests");
 const Student = require("../models/Student")
 
 module.exports = {
   getStudentProfile: async (req, res) => {
     try {
+      const teacher = await Teacher.findOne()
       const tests = await Test.find().lean()
       console.log(tests)
       const selectedTest = await Test.findById(req.query.testId);
