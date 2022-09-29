@@ -8,12 +8,15 @@ module.exports = {
       try {
         const tests = await Test.find().lean()
         const selectedTest = await Test.findById(req.query.testId);
-        res.render("./teacher/profile", { tests: tests, user: req.user, selectedTest: selectedTest});
+        const students = await User.find({role:"student", classId: req.user.classId})
+        console.log(`Students: ${students}`)
+        res.render("./teacher/profile", { tests: tests, user: req.user, selectedTest: selectedTest, students: students,});
       } catch (err) {
         console.log(err);
         res.render("errors/404")
       }
     },
+
   getAddTestForm: (req, res)=>{
     try{
         res.render("./teacher/add_test.ejs",{user: req.user} )
@@ -31,14 +34,9 @@ module.exports = {
         challengeWords: req.body.challenge,
         createdBy: req.user.id,
       });
-      const teacher = await Teacher.find({teacherId: req.user.id});
-      console.log(teacher)
-      if (!teacher) {
-         await Teacher.create({
-           TeacherId: req.user.id,
-            test: new Array(),
-        });
-    }
+      const teacher = await Teacher.findOne({teacherId: req.user.id});
+      console.log(teacher);
+    
       console.log("Test has been added!");
       res.redirect("/"+ req.user.role+"/profile");
     } catch (err) {

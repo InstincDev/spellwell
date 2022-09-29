@@ -102,6 +102,7 @@ exports.postStudentSignup = (req, res, next) => {
     userName: req.body.userName,
     email: req.body.email,
     password: req.body.password,
+    classId: req.body.classId,
     role: 'student',
   }); 
 
@@ -154,9 +155,12 @@ exports.postTeacherSignup = (req, res, next) => {
   const user = new User({
     userName: req.body.userName,
     email: req.body.email,
+    classId: req.body.classId,
     password: req.body.password,
     role: 'teacher',
   });
+
+ 
 
   User.findOne(
     { $or: [{ email: req.body.email }, { userName: req.body.userName }] },
@@ -170,7 +174,7 @@ exports.postTeacherSignup = (req, res, next) => {
         });
         return res.redirect("../teacher/signup");
       }
-      user.save((err) => {
+      user.save(async (err) => {
         if (err) {
           return next(err);
         }
