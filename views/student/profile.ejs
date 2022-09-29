@@ -2,22 +2,22 @@
 <div class="container mt-5 bg-primary">
     <div class="row justify-content-center">
         <div class="m-5 card col-8 justify-content-center bg-info">
-            <div class="row justify-content-evenly bg-white">
-                <p class="col-4">
+            <div class="row justify-content-evenly  pt-2 bg-white">
+                <p class="col-4 align-self-center">
                     <strong>User Name</strong>: <%= user.userName %>
                 </p>
                 <div
-                    class="col-4 d-flex row justify-content-center align-self-center"
+                    class="col-4 d-flex row justify-content-center align-self-center  pt-1 pb-3"
                 >
                     <a
                         href="/logout"
-                        class="btn-sm btn btn-info justify-content-center"
+                        class="btn-sm btn btn-info justify-content-center col-6"
                         >Logout</a
                     >
                 </div>
             </div>
             <div class="mt-5 mb-5 card">
-                <div class="row justify-content-center">
+                <div class="row justify-content-center align-self-center">
                     <div class="col-md-8 text-center row justify-content-center align-self-center"
                     >
                         <h2>Tests</h2>
@@ -27,7 +27,7 @@
                             <form
                                 class="justify-content-center align-self-center row"
                             >
-                                <div class="dropdown row">
+                                <div class="dropdown row justify-content-s">
                                     <div class="col-md-6">
                                         <select
                                             name="testId"
@@ -59,26 +59,37 @@
                             <% if(!selectedTest){%>
                             <p>No Test Selected</p>
                             <%} else {%>
-                            <p class="text-center mt-2 fs-5">
+                            <p class="text-center  mt-2 fs-5">
                                 <%=selectedTest.title%>
                             </p>
-
-                            <ul class="list-unstyled text-center">
+                            <div class="row ">
+                                <ul class="list-unstyled text-center col-6 ">
+                                <li> <strong>Base Words</strong></li>
                                 <% for (word of selectedTest.baseWords) {%>
                                 <li><%=word%></li>
                                 <%}%>
                             </ul>
+                            
+                            <ul class="list-unstyled text-center align-self-start col-6">
+                                <li><strong>Challenge Words</strong></li>
+                                <% for (word of selectedTest.challengeWords) {%>
+                                <li><%=word%></li>
+                                <%}%>
+                            </ul>
+                            </div>
+                            
                             <a
                                 href="../tests/test/<%=selectedTest._id%>"
-                                class="btn-sm btn-primary justify-content-md-center text-center mb-2"
+                                class="btn-sm btn-primary justify-content-md-center text-center col-3 mb-2"
                             >
                                 Take Test
                             </a>
                             <%}%>
                         </div>
                     </div>
-                    <div class="col-md-4 text-center row justify-content-center align-self-center">
-                        <h3>Grades</h3>
+                    <div class="col-md-4 text-center row justify-content-center align-self-center"
+                    >
+                        <h2>Grades</h2>
                         <div class="row mb-3">
                             <% if(!selectedTest){%>
                                 <p>No Test Selected</p>
