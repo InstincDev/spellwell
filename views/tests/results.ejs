@@ -1,20 +1,34 @@
 <%- include('../partials/header') -%>
 <main class="container mt-5 bg-primary">
-    <div class="row justify-content-center">
-          <h3 class="text-white"><%=test.title%> Test</h3>
-    <div class=" card m-5 col-8 row">
-        <h2>Grade: <%=grade%> / 100</h2>
-        <div class="text-center row">
-        <% for (result of incorrect) {%>
-            <span>Incorrect Word: <%=result.incorrectWord%></span>
-            <span>Correct Word: <%=result.correctWord%></span>
-        <%}%>
+    <div class="row justify-content-center align-self-center ">
+        <h3 class="text-white">Test name: <%=test.title%></h3>
+        <div class=" card mt-3 col-8 row mb-5 pb-3 justify-content-center align-self-center">
+            <h2>Grade: <%=grade%> / 100</h2>
+            <div class="text-center row justify-content-center align-self-center mb-3">
+        
+            <table>
+                <thead>
+                    <tr>
+                        <td><strong>Incorrect Word</strong></td>
+                        <td><strong> Correct Word</strong></td>
+                    </tr>
+                </thead>
+                 <% for (result of incorrect) {%>
+                <tbody>
+                   
+                    <tr >
+                        <td class="border-end border-bottom"><%=result.incorrectWord%></td>
+                        <td class="border-bottom"><%=result.correctWord%></td>
+                    </tr>
+                    <%}%>
+                </tbody>
+            </table>
+        
+            </div>
+            <div class="row center col-4 justify-content-center align-self-center">
+            <a href="/login" class="btn btn-info">Return to Profile</a>
+            </div>
         </div>
-        <div class="row center col-6 justify-content-center">
-            <a href="/login" class="btn btn-outline-info">Return to Profile</a>
-        </div>
-    </div>
-  
     </div>
 </main>
 
