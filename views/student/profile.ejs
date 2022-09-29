@@ -37,6 +37,8 @@
                                             <option selected disabled>
                                                 Tests
                                             </option>
+                                            <% if(tests){%>
+                                                
                                             <%for(let i =0; i < tests.length;
                                             i++) { %>
                                             <option
@@ -45,6 +47,7 @@
                                             >
                                                 <%=tests[i].title%>
                                             </option>
+                                            <%}%>
                                             <%} %>
                                         </select>
                                     </div>

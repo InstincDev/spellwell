@@ -31,9 +31,14 @@ module.exports = {
         challengeWords: req.body.challenge,
         createdBy: req.user.id,
       });
-      let studentUsers = await Student.find({role: 'student'});
-      console.log(studentUsers)
-      
+      const teacher = await Teacher.find({teacherId: req.user.id});
+      console.log(teacher)
+      if (!teacher) {
+         await Teacher.create({
+           TeacherId: req.user.id,
+            test: new Array(),
+        });
+    }
       console.log("Test has been added!");
       res.redirect("/"+ req.user.role+"/profile");
     } catch (err) {

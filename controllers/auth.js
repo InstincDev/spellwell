@@ -3,14 +3,16 @@ const validator = require("validator");
 const User = require("../models/User");
 
 exports.getLogin = (req, res) => {
-   
+   try{
     if (req.user) {
         return res.redirect(req.user.role+"/profile");
       }
       res.render("login", {
         title: "Login",
       });
-   
+   }catch(err){
+    console.log()
+   }
   
 };
 
@@ -101,7 +103,7 @@ exports.postStudentSignup = (req, res, next) => {
     email: req.body.email,
     password: req.body.password,
     role: 'student',
-  });
+  }); 
 
   User.findOne(
     { $or: [{ email: req.body.email }, { userName: req.body.userName }] },

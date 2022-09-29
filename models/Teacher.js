@@ -2,10 +2,9 @@ const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 const TeacherSchema = new mongoose.Schema({
-  userName: { type: String, unique: true },
+  teacherId: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
   classId:{type: Number, unique: true},
-  email: { type: String, unique: true },
-  password: String,
+  
 });
 
 // Password hash middleware.
