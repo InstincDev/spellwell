@@ -9,6 +9,7 @@ module.exports = {
         const tests = await Test.find().lean()
         const selectedTest = await Test.findById(req.query.testId);
         const students = await User.find({role:"student", classId: req.user.classId})
+        
         console.log(`Students: ${students}`)
         res.render("./teacher/profile", { tests: tests, user: req.user, selectedTest: selectedTest, students: students,});
       } catch (err) {
@@ -34,9 +35,6 @@ module.exports = {
         challengeWords: req.body.challenge,
         createdBy: req.user.id,
       });
-      const teacher = await Teacher.findOne({teacherId: req.user.id});
-      console.log(teacher);
-    
       console.log("Test has been added!");
       res.redirect("/"+ req.user.role+"/profile");
     } catch (err) {

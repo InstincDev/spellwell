@@ -52,19 +52,18 @@ module.exports = {
             }
             let grade = Math.floor(((15 - incorrect.length) / 15) * 100);
 
-            const student = await Student.findOne({ studentId: req.user.id });
-            if (student) {
-                student.reviewWords.push(...incorrect);
-                student.test.push(test.title, grade);
-                await student.save();
-            } else {
-                await Student.create({
+            let student = await Student.findOne({ studentId: req.user.id });
+            if (!student) {
+                student =  await Student.create({
                     studentId: req.user.id,
                     reviewWords: new Array(),
                     test: new Array(),
-                });
+                }); 
             }
-
+            student.reviewWords.push(...incorrect);
+            student.test.push(test.title, grade);
+            await student.save();
+            console.log(student)
             res.render("./tests/results", {
                 incorrect: incorrect,
                 test: test,
