@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const StudentSchema = new mongoose.Schema({
   studentId: {type: mongoose.Schema.Types.ObjectId, ref: "User"},
   reviewWords: {type: Array},
-  test: {type: Array},
+  grades: {type: Array},
 });
 
 // Password hash middleware.

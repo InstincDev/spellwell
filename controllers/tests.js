@@ -50,6 +50,7 @@ module.exports = {
                     incorrect.push(result);
                 }
             }
+            
             let grade = Math.floor(((15 - incorrect.length) / 15) * 100);
 
             let student = await Student.findOne({ studentId: req.user.id });
@@ -57,11 +58,18 @@ module.exports = {
                 student =  await Student.create({
                     studentId: req.user.id,
                     reviewWords: new Array(),
-                    test: new Array(),
+                    grades: new Array(),
                 }); 
             }
+            
+            let attempt = {    
+                test: test.title,
+                grade: grade,
+                testResults: incorrect,
+            };
+
             student.reviewWords.push(...incorrect);
-            student.test.push(test.title, grade);
+            student.grades.push(attempt);
             await student.save();
             console.log(student)
             res.render("./tests/results", {
