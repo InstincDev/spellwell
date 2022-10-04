@@ -8,7 +8,10 @@ module.exports = {
       let tests
       let grades =[]
       const teacher = await User.findOne({role: "teacher", classId: req.user.classId})
-      tests = await Test.find({createdBy: teacher._id}).lean()
+      if(teacher){
+        tests = await Test.find({createdBy: teacher._id}).lean()
+      }
+      
       console.log(tests)
       const selectedTest = await Test.findById(req.query.testId);
        const student = await Student.find({studentId: req.user.id  }).lean()
