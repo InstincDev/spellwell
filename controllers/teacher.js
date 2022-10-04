@@ -6,16 +6,19 @@ module.exports = {
   
     getTeacherProfile: async (req, res) => {
       try {
-        let testGrades = []
-        const tests = await Test.find().lean()
+        let testResults = []
+        selectTestResults = []
+        const tests = await Test.find({createdBy:req.user.id}).lean()
         const selectedTest = await Test.findById(req.query.testId);
         const students = await User.find({role:"student", classId: req.user.classId})
+        
         for(student of students){
-          testGrades.push( ...await Student.find({studentId: student.id}))
+          testResults.push(await Student.find({studentId: student.id }))
         }
-      
-        console.log(testGrades[0].grades)
-        res.render("./teacher/profile", { tests: tests, user: req.user, selectedTest: selectedTest, students: students, testGrades: testGrades,});
+
+       
+        
+        res.render("./teacher/profile", { tests: tests, user: req.user, selectedTest: selectedTest, students: students, testResults: testResults,});
       } catch (err) {
         console.log(err);
         res.render("errors/404")

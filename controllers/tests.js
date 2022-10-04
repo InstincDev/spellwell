@@ -67,7 +67,6 @@ module.exports = {
                 testResults: incorrect,
             };
 
-            student.reviewWords.push(...incorrect);
             student.grades.push(attempt);
             await student.save();
             console.log(student)
