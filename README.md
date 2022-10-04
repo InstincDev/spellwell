@@ -10,6 +10,12 @@ For each test, the spelling word is spoken aloud, and the student inputs the cor
 
 ### Demo
 
+
+![spellwell_index](https://user-images.githubusercontent.com/67307808/193940903-dfc112fd-0884-4f00-bcd3-0910ccf9e0a2.png)
+![teacher_signup](https://user-images.githubusercontent.com/67307808/193940934-d80175e6-14a7-4fb2-bf88-1ac7d466df84.png)
+![student_signup](https://user-images.githubusercontent.com/67307808/193940945-43bc19ec-b13e-4e56-8f8f-bf598dd5a34a.png)
+![spellwell_login](https://user-images.githubusercontent.com/67307808/193941015-fbb190d1-dd06-461b-9aef-3bee5338fa58.png)
+
 Users may use these sample logins for a demonstration of the SpellWell app.
 
 
