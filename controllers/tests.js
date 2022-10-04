@@ -42,7 +42,7 @@ module.exports = {
             const test = await Test.findById(req.params.id);
             let incorrect = [];
             for (let key in req.body) {
-                if (key.toLowerCase() != req.body[key].toLowerCase()) {
+                if (key.toLowerCase() != req.body[key].toLowerCase().trim()) {
                     let result = {
                         incorrectWord: req.body[key],
                         correctWord: key,
