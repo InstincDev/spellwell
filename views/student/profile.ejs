@@ -6,6 +6,7 @@
                 <p class="col-4 align-self-center">
                     <strong>User Name</strong>: <%= user.userName %>
                 </p>
+                
                 <div
                     class="col-4 d-flex row justify-content-center align-self-center  pt-1 pb-3"
                 >
@@ -108,19 +109,20 @@
                                 </thead>
                                 <tbody>
                                     
-                                    <% if(student.length == 0){%>
+                                    <% if(grades.length == 0){%>
                                       <tr>      
                                             <td>-</td>
                                             <td>-</td>
                                       </tr>
                                         <%} else {%>
-                                            <% for(let i=0; i< student[0].test.length; i+=2){%>
+                                            <% for(let i=0; i< grades.length && 1 < 10; i++){%>
+
                                                 <tr>
                                                <td>
-                                                    <%=i%>
+                                                    <%=i+1%>
                                                 </td>
                                                 <td>
-                                                    <%=student[0].test[i+1]%>
+                                                    <%=grades[i].grade%>
                                                 </td>
                                             </tr> 
                                             <%}%>

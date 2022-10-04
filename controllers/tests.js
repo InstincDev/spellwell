@@ -57,7 +57,6 @@ module.exports = {
             if (!student) {
                 student =  await Student.create({
                     studentId: req.user.id,
-                    reviewWords: new Array(),
                     grades: new Array(),
                 }); 
             }
