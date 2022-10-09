@@ -5,8 +5,8 @@
           <div class=" row justify-content-center align-self-center ">
             <div class="col-md-5 col-sm-5 card-header d-flex row align-items-center justify-content-center bg-info">
               <div>
-                <img src="/imgs/error.png" class="img-fluid" alt="teacher sign-in image">
-                <h3 class="card-title text-center">Teacher SignUp</h3>
+                <img src="/imgs/parent.png" class="img-fluid" alt="teacher sign-in image">
+                <h3 class="card-title text-center">Parent SignUp</h3>
               </div>
             </div>
             <div class="col-md-7 card-body row text-center justify-content-center align-self-center">
@@ -21,7 +21,7 @@
                             <div class="alert alert-info"><%= el.msg %></div>
                         <% }) %>    
                     <% } %>
-                    <form action="/teacher/signup" method="POST" class=" row mb-3 justify-content-center align-self-center">
+                    <form action="/parent/signup" method="POST" class=" row mb-3 justify-content-center align-self-center">
                         <div class="mb-3">
                           <label for="userName" class="form-label">User Name</label>
                               <input type="text" class="form-control" id="userName" name="userName">
@@ -34,6 +34,10 @@
                         <div class="mb-3">
                           <label for="classId" class="form-label">Class ID</label>
                           <input type="text" class="form-control" id="classId" name="classId">
+                        </div>
+                        <div class="mb-3">
+                          <label for="childId" class="form-label">Child ID</label>
+                          <input type="text" class="form-control" id="childId" name="childId">
                         </div>
                         <div class="mb-3">
                           <label for="password" class="form-label">Password</label>

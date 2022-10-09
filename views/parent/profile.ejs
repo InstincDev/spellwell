@@ -115,7 +115,7 @@
                                     <%} else {%> 
                                         <%for(let i =0; i< testResults.length;i++){%>
                                              <tr>
-                                                <td><%= students[i].userName %></td>
+                                                <td><%= child[i].userName %></td>
                                             <%if(testResults[i][0]!= undefined){%>
                                                 <%for(let j = 0;j< testResults[i][0].grades.length;j++){%>
                                                     <%if(testResults[i][0].grades[j].test== selectedTest.title){%>
