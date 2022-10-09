@@ -12,6 +12,7 @@ const mainRoutes = require("./routes/main");
 const studentRoutes = require("./routes/student");
 const testRoutes = require("./routes/tests");
 const teacherRoutes =require("./routes/teacher");
+const parentRoutes =require("./routes/parent");
 
 //Use .env file in config folder
 require("dotenv").config({ path: "./config/.env" });
@@ -61,6 +62,7 @@ app.use("/", mainRoutes);
 app.use("/student", studentRoutes);
 app.use("/tests", testRoutes);
 app.use("/teacher", teacherRoutes);
+app.use("/parent", parentRoutes);
 
 //Server Running
 app.listen(process.env.PORT, () => {
