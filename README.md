@@ -1,10 +1,10 @@
 # SpellWell
 
-SpellWell is a spelling application designed for students, teachers, and parents. 
+SpellWell is a spelling application designed for students, teachers, and parents / guardians. 
 
 ## Usage
 
-Users who login as students will be able to view, take, and get the results of spelling tests added by their teacher. Teachers will be able to create new tests, and access the results for all their students. In turn, parents will be able to access the test results of their child(ren).
+Users who login as students will be able to view, take, and get the results of spelling tests added by their teacher. Teachers will be able to create new tests, and access the results for all their students. In turn, Parents / Guardians will be able to access the test results of their child(ren).
 
 For each test, the spelling word is spoken aloud, and the student inputs the correct spelling. Once submitted the test is graded and displayed along with the incorrect words.  Grades and attempts of each test are stored for review by the teacher and parent.
 

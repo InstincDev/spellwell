@@ -1,90 +1,89 @@
 <%- include('partials/header') -%>
 
-<main class="container mt-5 ">
-  <div class="row m-3 ">
-     <div class=" row m-3 justify-content-center bg-primary">
+<main class="row m-5 justify-content-center  ">
+  <div class=" m-3  ">
+     <div class=" row p-3 justify-content-center bg-primary">
         <h2 class="text-white mt-3">Welcome</h2>
         <div class=" col-6 mb-3">
            <img src="/imgs/spellwell.png" alt="home image" class="img-fluid"> 
         </div>
          <p class="text-center text-white fs-4">I am a ...</p>
       </div>  
-    <div class="row m-3 gap-2 justify-content-center">
-        <a href="/student/signup" class=" col-md-5 btn btn-info fs-4">Student</a>
-        <a href="/teacher/signup" class="col-md-5 btn btn-info fs-4">Teacher</a>
+    <div class="row m-3 mb-4 gap-2 justify-content-center">
+        <a href="/student/signup" class=" col-md-3 btn btn-info shadow fs-4">Student</a>
+        <a href="/teacher/signup" class="col-md-3 btn btn-info shadow fs-4">Teacher</a>
+        <a href="/student/signup" class=" col-md-3 btn btn-info shadow fs-4">Parent</a>
        <a href="/login"class="col col-12  text-center fs-5">Login</a>
         
     </div>
-  </div>
-   
-  
-     
+  </div>   
 </main>
-    <div class="row m-4 justify-content-center bg-primary">
-<div class=" row m-3 text-white">
-   <h4 class="text-center">SpellWell is a spelling application designed for students, teachers, and parents. </h4>
-   
 
-   <h5>How It Works</h5>
-   
-      <div class="card mb-3 text-primary">
-         <img src="/imgs/student.png" class="card-img-top img-fluid" alt="...">
-         <div class="card-body">
-           <h5 class="card-title">Student</h5>
-           <p class="card-text">Students can view, take, and get the results of spelling tests added by their teacher. </p>
-           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+<div class="row m-4 justify-content-center bg-primary">
+   <div class=" p-4  text-white">
+      <h3 class="text-center fs-4"><span class="fw-bold">SpellWell</span>  is a spelling application designed for students, teachers, and parents.</h3>
+      <div class="m-3">
+         <h4>How It Works</h4>
+         <p class="m-2 ">
+            For each test, the spelling word is spoken aloud, and the student inputs the correct spelling. Once submitted the test is graded and displayed along with the incorrect words.  Grades and attempts of each test are stored for review by the teacher and parent.
+      </p>
+         <div class=" row btn-group ms-2 me-2 justify-content-center  gap-3">
+            <a href="/student/signup" class=" col-md-3 btn btn-info shadow rounded ">
+               <div class=" bg-transparent ">
+                  <img src="/imgs/student.png" class="card-img-top img-fluid mt-3" alt="cartoon of a little girl in a computer">
+                  <div class="card-body text-start">
+                     <h5 class="text-center text-white">Students</h5>
+                     <p class="text-full">Students can take and get the results of spelling tests added by their teacher.</p>
+                     <div class=" card-footer bg-transparent row justify-content-center align-items-center">
+                        <h6 class="card-title text-center col"><small class="text-muted fw-bold">Demo Login</small></h6>
+                        <span><small class="text-muted ">Username:</small></span>
+                        <span><small class="text-muted">sample@student.com</small></span>
+                        <span><small class="text-muted">Password:</small></span>
+                        <span><small class="text-muted">studentPassword</small></span>
+                     </div>
+                  </div>
+               </div>
+            </a>
+            <a href="/teacher/signup" class="col-md-3 btn btn-info shadow rounded">
+               <div class=" bg-transparent">
+         <img src="/imgs/teacher1.png" class="card-img-top img-fluid mt-3" alt="cartoon of a teacher in a computer">
+         <div class="card-body text-start">
+           <h5 class="card-title text-center text-white">Teachers</h5>
+           <p class="card-text">Teachers can create new tests, and access the results for all their students.</p>
+           <div class=" card-footer bg-transparent row justify-content-center text-center">
+            <h6 class="card-title  col-12"><small class="text-muted fw-bold">Demo Login</small></h6>
+            <span><small class="text-muted ">Username:</small></span>
+            <span><small class="text-muted ">sample@teacher.com</small></span>
+            <span><small class="text-muted">Password:</small></span>
+            <span><small class="text-muted">teacherPassword</small></span>
+            
+            </div>
+            <span class="text-start"><small class="text-muted ">*You can also add students to the Sample Teacher by using the Class Id: 200.</small></span>
          </div>
+         
+               </div>
+            </a>
+
+            <a href="/teacher/signup" class="col-md-3 btn btn-info shadow rounded">
+               <div class="bg-transparent">
+         <img src="/imgs/parent.png" class="card-img-top img-fluid mt-3" alt="cartoon of a parent and child with backpack">
+         <div class="card-body">
+           <h5 class="card-title text-white">Parents / Guardians</h5>
+           <p class="card-text text-start">Parents / Guardians can access the test results of their child(ren).</p>
+           <div class=" card-footer bg-transparent row justify-content-center">
+            <h6 class="card-title text-center col-12"><small class="text-muted fw-bold">Demo Login</small></h6>
+            <span><small class="text-muted ">Username:</small></span>
+            <span><small class="text-muted ">sample@parent.com</small></span>
+            <span><small class="text-muted">Password:</small></span><span><small class="text-muted">parentPassword</small></span>
+            </div>
+         </div>
+               </div>
+            </a>
+         </div>
+         
       </div>
-       <div class="card mb-3">
-         <img src="/imgs/teacher1.png" class="card-img-top img-fluid" alt="...">
-         <div class="card-body">
-           <h5 class="card-title">Card title</h5>
-           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-         </div>
-       </div>
-       <div class="card mb-3">
-         <img src="/imgs/parent.png" class="card-img-top img-fluid" alt="...">
-         <div class="card-body">
-           <h5 class="card-title">Card title</h5>
-           <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-           <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-         </div>
-       </div>
-       
-   <p>Teachers can create new tests, and access the results for all their students. For each test, the spelling word is spoken aloud, and the student inputs the correct spelling. Once submitted the test is graded and displayed along with the incorrect words.  Grades and attempts of each test are stored for review by the teacher and parent.</p>
-
-<div class="card text-primary">
-   <h6>For a demonstration of the SpellWell app users can login with the following credentials:</h6>
-<div class="m-3">
-      <table class="justify-content-center align-self-center">
-   <thead>
-      <td>Sample Email</td>
-      <td>Sample Password</td>
-      <td>Description</td>
-     
-   </thead>
-   <tbody>
-      <tr>
-         <td>sample@teacher.com</td>
-         <td>sample@student.com</td>
-         <td>Teacher Demo</td>
-      </tr>
-      <tr>
-         <td>teacherPassword</td>
-         <td>studentPassword</td>
-         <td>Student Demo</td>
-      </tr>
       
-   </tbody>
-</table>
+   </div>
 </div>
-
-     </div>
-
-* You can also add students to the Sample Teacher, by using the classId: 200*
-</div>
-   
-  </div>
 
 <%- include('partials/footer') -%>
