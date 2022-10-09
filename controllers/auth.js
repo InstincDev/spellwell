@@ -241,15 +241,15 @@ exports.postParentSignup = (req, res, next) => {
         if (err) {
           return next(err);
         }
-        const parent = new Parent({
-          parentID: req.user.id,
-          childId: req.body.childId
-        })
-        parent.save();
         req.logIn(user, (err) => {
           if (err) {
             return next(err);
           }
+          const parent = new Parent({
+            parentId: req.user.id,
+          childId: req.body.childId
+        })
+        parent.save();
           res.redirect("../parent/profile");
         });
       });

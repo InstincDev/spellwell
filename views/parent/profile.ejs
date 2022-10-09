@@ -81,11 +81,6 @@
                            
                         <%}%>
                         </div>
-                         <a
-                            href="../teacher/add_test"
-                            class="btn-sm btn-primary justify-content -md-center text-center col-3 mb-2"
-                            >Add Tests</a
-                        > 
                     </div>
                     <div
                         class="col-md-4 text-center row justify-content-start align-self-start"
@@ -106,9 +101,9 @@
                                 </thead>
                                 <tbody>
                                     <%if(!selectedTest) {%> 
-                                        <% for(let i = 0; i< students.length; i++) {%>
+                                        <% for(let i = 0; i< child.length; i++) {%>
                                             <tr>
-                                                <td><%= students[i].userName %></td>
+                                                <td><%= child[i].userName %></td>
                                                 <td>-</td>
                                             </tr>
                                         <%}%>
