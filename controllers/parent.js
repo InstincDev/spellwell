@@ -20,7 +20,7 @@ module.exports = {
           childGrade = await Student.find({studentId: students[s].id})
         } 
       }
-      console.log(child[0].userName, childGrade)
+      
       const selectedTest = await Test.findById(req.query.testId);
       if(selectedTest && childGrade !=0){
         for(let i = 0; i< childGrade[0].grades.length; i++){
@@ -29,8 +29,10 @@ module.exports = {
           }
         }
       }
-      
-      res.render("./parent/profile", { tests: tests, user: req.user, child:child, selectedTest: selectedTest,  testResults:grades, });
+      console.log(child)
+      console.log(tests)
+      console.log(grades)
+      res.render("./parent/profile", { tests: tests, user: req.user, child:child, selectedTest: selectedTest,  grades:grades, });
     } catch (err) {
       console.log(err);
       res.render("errors/404")
