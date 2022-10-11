@@ -24,7 +24,7 @@ module.exports = {
       const selectedTest = await Test.findById(req.query.testId);
       if(selectedTest && childGrade !=0){
         for(let i = 0; i< childGrade[0].grades.length; i++){
-          if( childGrade[0].grades[i].test == selectedTest.title){
+          if( selectedTest.title == childGrade[0].grades[i].test){
             grades.push(childGrade[0].grades[i])
           }
         }

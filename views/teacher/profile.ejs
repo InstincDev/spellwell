@@ -22,7 +22,7 @@
             <div class="mt-5 mb-5 card">
                 <div class="row justify-content-center align-self-center">
                     <div
-                        class="col-md-7 text-center row justify-content-center align-self-center"
+                        class="col-md-6 text-center row justify-content-center align-self-center"
                     >
                         <h2>Tests</h2>
                         <div
@@ -66,7 +66,7 @@
                             </p>
 
                             <div class="row">
-                                <ul class="list-unstyled text-center col-6">
+                                <ul class="list-unstyled text-center col-lg-6">
                                     <li><strong>Base Words</strong></li>
                                     <% for (word of selectedTest.baseWords) {%>
                                     <li><%=word%></li>
@@ -74,9 +74,9 @@
                                 </ul>
 
                                 <ul
-                                    class="list-unstyled text-center align-self-start col-6"
+                                    class="list-unstyled text-center align-self-start col-lg-6"
                                 >
-                                    <li><strong>Challenge Words</strong></li>
+                                    <li><strong class="text-nowrap">Challenge Words</strong></li>
                                     <% for (word of selectedTest.challengeWords)
                                     {%>
                                     <li><%=word%></li>
@@ -94,55 +94,46 @@
                         > 
                     </div>
                     <div
-                        class="col-md-4 text-center row justify-content-start align-self-start"
+                        class="col-md-6 text-center row justify-content-center align-self-start"
                     >
-                        <h2 class="text-nowrap">Students</h2>
+                        <h2 class="text-nowrap text-center">Students</h2>
                         <div
                             class="row mb-3 "
                         >
-                            <% if(testResults.length == 0){%>
-                                <p>No Students</p>
-                            <%} else {%>
-                                <table class="table table-sm mt-3">
-                                <thead>
-                                    <tr class="justify-content-start">
-                                        <td colspan="2" class="fs-5">Name</td>
-                                        <td colspan="3" class="fs-5">Grades*</td>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <%if(!selectedTest) {%> 
-                                        <% for(let i = 0; i< students.length; i++) {%>
-                                            <tr>
-                                                <td><%= students[i].userName %></td>
-                                            </tr>
-                                        <%}%>
-                                    <%} else {%> 
-                                        <%for(let i =0; i< testResults.length;i++){%>
-                                             <tr>
-                                                <td colspan="2"><%= students[i].userName %></td>
-                                            <%if(testResults[i][0]!= undefined){%>
-                                                <%for(let j = testResults[i][0].grades.length-1; j>= 0 && j >= testResults[i][0].grades.length-4; j--){%>
-                                                    <%if(testResults[i][0].grades[j].test== selectedTest.title){%>
-                                                       
-                                                            <td>
-                                                                <%= testResults[i][0].grades[j].grade %>
-                                                            </td>
-                                                        
-                                                    <%}%>
-
-                                                <%}%>
-                                            <%} else {%>
-                                            
-                                            <%}%>
+                        <% if(testResults.length == 0){%>
+                            <p>No Students</p>
+                        <%} else {%>
+                            <table class="table table-sm mt-3">
+                            <thead>
+                                <tr class="justify-content-start">
+                                    <td colspan="2" class="fs-5">Name</td>
+                                    <td colspan="3" class="fs-5">Grades*</td>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%if(!selectedTest) {%> 
+                                    <% for(let i = 0; i< students.length; i++) {%>
+                                        <tr>
+                                            <td><%= students[i].userName %></td>
                                         </tr>
-                                        <%}%>
                                     <%}%>
-                                        
+                                <%} else {%> 
+                                    <%for(let i =0; i< testResults.length;i++){%>
+                                         <tr>
+                                            <td colspan="2"><%= students[i].userName %></td>
+                                        <%if(testResults[i]!= undefined){%>
+                                            <%let test = testResults[i].grades.filter(el=> el.test == selectedTest.title)%>
+                                            <td colspan="3"><%= test.reverse().slice(0,3).map(el=> el.grade).join(' - ') %></td>
+                    
+                                        <%}%> 
+                                    </tr>
+                                    <%}%>
+                                <%}%>
                                     
-                                </tbody>
-                                </table>
-                            <%}%>
+                                
+                            </tbody>
+                            </table>
+                        <%}%>
                             <small class="align-self-end">*last three (3) grades shown</small></td>
                         </div>
                     </div>

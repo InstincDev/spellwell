@@ -11,11 +11,11 @@ module.exports = {
         const tests = await Test.find({createdBy:req.user.id}).lean()
         const selectedTest = await Test.findById(req.query.testId);
         const students = await User.find({role:"student", classId: req.user.classId})
-        
+         
         for(student of students){
-          testResults.push(await Student.find({studentId: student.id }))
+          testResults.push(...await Student.find({studentId: student.id }))
         }
-
+        
        
         
         res.render("./teacher/profile", { tests: tests, user: req.user, selectedTest: selectedTest, students: students, testResults: testResults,});
