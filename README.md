@@ -22,6 +22,7 @@ For each test, the spelling word is spoken aloud, and the student inputs the cor
 
 ![Screenshot 2022-10-11 215522](https://user-images.githubusercontent.com/67307808/195239582-5baa58e2-fde4-47ea-9389-95851bf5b90c.png)
 
+Watch this demo of SpellWell on YouTube - https://youtu.be/4nWote_Qz0g
 
 Users may use these sample logins for a demonstration of the SpellWell app.
 | Sample Email | Sample Password | Description  |
