@@ -13,21 +13,24 @@ https://spellwell.cyclic.app/
 ## Usage
 
 Users who login as students can view, take, and get the results of spelling tests added by their teacher. Teachers can create new tests, and access the results for all their students. In turn, parents can access the test results of their child(ren).
->>>>>>> 952970cb7292c0d2d764cedbff2d6ffbed6b161f
 
 For each test, the spelling word is spoken aloud, and the student inputs the correct spelling. Once submitted the test is graded and displayed along with the incorrect words.  Grades and attempts of each test are stored for review by the teacher and parent.
 
 ### Demo
 
 
-![spellwell_index](https://user-images.githubusercontent.com/67307808/193940903-dfc112fd-0884-4f00-bcd3-0910ccf9e0a2.png)
-![teacher_signup](https://user-images.githubusercontent.com/67307808/193940934-d80175e6-14a7-4fb2-bf88-1ac7d466df84.png)
-![student_signup](https://user-images.githubusercontent.com/67307808/193940945-43bc19ec-b13e-4e56-8f8f-bf598dd5a34a.png)
-![spellwell_login](https://user-images.githubusercontent.com/67307808/193941015-fbb190d1-dd06-461b-9aef-3bee5338fa58.png)
+![Screenshot 2022-10-11 215552](https://user-images.githubusercontent.com/67307808/195239538-76e7c85a-8099-4b2a-99bb-e4dfb2ba5ec7.png)
+
+![Screenshot 2022-10-11 215649](https://user-images.githubusercontent.com/67307808/195239541-834fa10f-02de-4fcf-938a-dcc4f177190d.png)
+
+![Screenshot 2022-10-11 215426](https://user-images.githubusercontent.com/67307808/195239563-4c190fb1-ca93-4402-afe6-c883c26e187a.png)
+
+![Screenshot 2022-10-11 215455](https://user-images.githubusercontent.com/67307808/195239571-c42f4298-72dd-4957-b958-a33a9279fe62.png)
+
+![Screenshot 2022-10-11 215522](https://user-images.githubusercontent.com/67307808/195239582-5baa58e2-fde4-47ea-9389-95851bf5b90c.png)
+
 
 Users may use these sample logins for a demonstration of the SpellWell app.
-
-
 | Sample Email | Sample Password | Description  |
 | :-------- | :------- | :------------------------- |
 | sample@teacher.com| teacherPassword | Teacher Demo |
