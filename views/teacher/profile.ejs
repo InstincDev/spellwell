@@ -1,9 +1,9 @@
 <%- include('../partials/header') -%>
-<div class="container mt-5 bg-primary">
+<div class=" m-5 bg-primary rounded">
     <div class="row justify-content-center">
-        <div class="m-5 card col-8 justify-content-center bg-info">
-            <nav class="row navbar navbar-expand bg-light">
-                <div class="container-fluid">
+        <div class="m-5 card col-8 justify-content-center bg-info shadow">
+            <nav class="row navbar navbar-expand bg-light ">
+                <div class="container-fluid ">
                 
                     <ul class=" col navbar-nav justify-content-around">
                       <li class="nav-item ">
@@ -19,7 +19,7 @@
                 
                 </div>
               </nav>
-            <div class="mt-5 mb-5 card">
+            <div class="mt-5 mb-5 card rounded">
                 <div class="row justify-content-center align-self-center">
                     <div
                         class="col-md-6 text-center row justify-content-center align-self-center"
@@ -107,7 +107,7 @@
                             <thead>
                                 <tr class="justify-content-start">
                                     <td colspan="2" class="fs-5">Name</td>
-                                    <td colspan="3" class="fs-5">Grades*</td>
+                                    <td colspan="2" class="fs-5">Grades*</td>
                                 </tr>
                             </thead>
                             <tbody>
@@ -123,7 +123,7 @@
                                             <td colspan="2"><%= students[i].userName %></td>
                                         <%if(testResults[i]!= undefined){%>
                                             <%let test = testResults[i].grades.filter(el=> el.test == selectedTest.title)%>
-                                            <td colspan="3"><%= test.reverse().slice(0,3).map(el=> el.grade).join(' - ') %></td>
+                                            <td colspan="2"><%= test.reverse().slice(0,3).map(el=> el.grade).join(' | ') %></td>
                     
                                         <%}%> 
                                     </tr>
@@ -141,5 +141,6 @@
             </div>
         </div>
     </div>
-    <%- include('../partials/footer') -%>
+   
 </div>
+ <%- include('../partials/footer') -%>
