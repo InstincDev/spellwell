@@ -28,6 +28,9 @@ Users may use these sample logins for a demonstration of the SpellWell app.
 | :-------- | :------- | :------------------------- |
 | sample@teacher.com| teacherPassword | Teacher Demo |
 | sample@student.com| studentPassword| Student Demo |
+| sample@parent.com| parentPassword| Parent Demo |
+
+Students can be added to the sample teacher by using Class ID: 200.
 
 ---
 
