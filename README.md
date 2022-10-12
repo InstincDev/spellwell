@@ -5,11 +5,11 @@ SpellWell is a spelling application designed for students, teachers, and parents
 
 ## Usage
 
-Users who login as students will be able to view, take, and get the results of spelling tests added by their teacher. Teachers will be able to create new tests, and access the results for all their students. In turn, Parents / Guardians will be able to access the test results of their child(ren).
+Users who login as students will be able to view, take, and get the results of spelling tests added by their teacher. Teachers will be able to create new tests, and access the results for all their students. Parents / Guardians will be able to access the test results of their child(ren).
 
-For each test, the spelling word is spoken aloud, and the student inputs the correct spelling. Once submitted the test is graded and displayed along with the incorrect words.  Grades and attempts of each test are stored for review.
+Each test, the spelling word is spoken aloud, and the student inputs the correct spelling. Once submitted the test is graded and incorrect words are  displayed.  Grades and attempts of each test are stored for review.
 
-### Demo
+### Screenshots
 
 
 ![Screenshot 2022-10-11 215552](https://user-images.githubusercontent.com/67307808/195239538-76e7c85a-8099-4b2a-99bb-e4dfb2ba5ec7.png)
@@ -21,6 +21,8 @@ For each test, the spelling word is spoken aloud, and the student inputs the cor
 ![Screenshot 2022-10-11 215455](https://user-images.githubusercontent.com/67307808/195239571-c42f4298-72dd-4957-b958-a33a9279fe62.png)
 
 ![Screenshot 2022-10-11 215522](https://user-images.githubusercontent.com/67307808/195239582-5baa58e2-fde4-47ea-9389-95851bf5b90c.png)
+
+### Demo
 
 Watch this demo of SpellWell on YouTube - https://youtu.be/4nWote_Qz0g
 
@@ -41,7 +43,7 @@ Students can be added to the sample teacher by using Class ID: 200.
 
 ---
 
-## Things to add
+### Things to add
 
 - Create a `.env` file in config folder and add the following as `key = value`
   - PORT = (can be any port example: 3000)
@@ -49,7 +51,7 @@ Students can be added to the sample teacher by using Class ID: 200.
 
 ---
 
-## Run
+### Run
 
 `npm start`
 
