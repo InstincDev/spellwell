@@ -1,6 +1,6 @@
 # SpellWell
 
-<<<<<<< HEAD
+
 SpellWell is a spelling application designed for students, teachers, and parents / guardians. 
 
 ## Usage
@@ -60,17 +60,11 @@ Users may use these sample logins for a demonstration of the SpellWell app.
 
 ## Optimizations
 
-#### Student
-- Add TTS buttons for spelling words on profile pg.
-
 #### Teacher
-- Add  '-' under Grades column for students who have not taken a selected test
-- Show only the latest selected test taken per student on profile pg.
 - Add Gradebook pg for all test taken by selected student
 
 #### App
 - Update format and styling
 - Refactor (DRY) code
-- Add Parent user
 - Add review words as challenge words on subsequent tests
 - Add spelling games
